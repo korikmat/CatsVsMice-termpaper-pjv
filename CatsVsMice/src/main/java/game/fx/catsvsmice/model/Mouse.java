@@ -3,25 +3,31 @@ package game.fx.catsvsmice.model;
 import javafx.scene.image.Image;
 
 public class Mouse {
-    private int posX = 40;
-    private int posY = 400;
+    private double posX = 80;
+    private double posY = 420;
 
     private final Image mouseIMG = new Image("mouse.png", 113*0.7, 114*0.7, false, false);
 
-    public void setPosX(int posX) {
+    public void setPosX(double posX) {
         this.posX = posX;
     }
 
-    public void setPosY(int posY) {
+    public void setPosY(double posY) {
         this.posY = posY;
     }
 
-    public int getPosX() {
+    public double getPosX() {
         return posX;
     }
 
-    public int getPosY() {
+    public double getPosY() {
         return posY;
+    }
+    public double getWidth(){
+        return mouseIMG.getWidth();
+    }
+    public double getHeight(){
+        return mouseIMG.getHeight();
     }
 
     public Image getMouseIMG() {
