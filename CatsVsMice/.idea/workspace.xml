@@ -4,16 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b3694628-352a-4e3e-8226-080989344790" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Path.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace (2).xml" beforeDir="false" />
+    <list default="true" id="b3694628-352a-4e3e-8226-080989344790" name="Changes" comment="added path creation and moving the mouse along it">
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Cats.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/button-invis.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/button-press-brown.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/button-vis-brown.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/button-vis-grey.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/cat.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/GameModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/GameModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Mouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Mouse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Path.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Path.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/view/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/view/GameView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/background_white.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,22 +45,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/mathew/Documents/studying/pjv/term_paper/MyGames/CatsVsMice",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/mathew/Documents/studying/pjv/term_paper/MyGames/CatsVsMice&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/view" />
     </key>
   </component>
@@ -79,12 +87,49 @@
       <option name="presentableId" value="Default" />
       <updated>1682341231898</updated>
       <workItem from="1682341234893" duration="37000" />
-      <workItem from="1682341291976" duration="23717000" />
+      <workItem from="1682341291976" duration="30657000" />
+      <workItem from="1682378490647" duration="2223000" />
+      <workItem from="1682381120056" duration="328000" />
+      <workItem from="1682381812449" duration="1332000" />
+      <workItem from="1682416112029" duration="2515000" />
+      <workItem from="1682442904059" duration="16307000" />
+      <workItem from="1682470532808" duration="150000" />
+      <workItem from="1682470711590" duration="1208000" />
     </task>
+    <task id="LOCAL-00001" summary="added path creation and moving the mouse along it">
+      <created>1682366172119</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1682366172119</updated>
+    </task>
+    <task id="LOCAL-00002" summary="added path creation and moving the mouse along it">
+      <created>1682366189221</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1682366189221</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added path creation and moving the mouse along it" />
+    <option name="LAST_COMMIT_MESSAGE" value="added path creation and moving the mouse along it" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -95,5 +140,9 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

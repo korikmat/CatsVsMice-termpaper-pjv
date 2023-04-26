@@ -1,9 +1,12 @@
 package game.fx.catsvsmice.model;
 
+import javafx.scene.image.Image;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Path {
+
     private List<Double> points = new ArrayList<>();
 
     public Path(double mousePosX, double mousePosY) {
@@ -18,5 +21,7 @@ public class Path {
     public List<Double> getListOfPoints() {
         return points;
     }
+
+
 
 }
