@@ -4,19 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b3694628-352a-4e3e-8226-080989344790" name="Changes" comment="added path creation and moving the mouse along it">
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Cats.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/button-invis.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/button-press-brown.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/button-vis-brown.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/button-vis-grey.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/cat.gif" afterDir="false" />
+    <list default="true" id="b3694628-352a-4e3e-8226-080989344790" name="Changes" comment="add chilling cats ^.^">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/GameModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/GameModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Path.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Path.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Cats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Cats.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Mouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Mouse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/view/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/view/GameView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/background_white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/cat.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/cat-white.gif" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +87,10 @@
       <workItem from="1682416112029" duration="2515000" />
       <workItem from="1682442904059" duration="16307000" />
       <workItem from="1682470532808" duration="150000" />
-      <workItem from="1682470711590" duration="1208000" />
+      <workItem from="1682470711590" duration="1436000" />
+      <workItem from="1682505337162" duration="14662000" />
+      <workItem from="1682521147667" duration="3841000" />
+      <workItem from="1682535497070" duration="1595000" />
     </task>
     <task id="LOCAL-00001" summary="added path creation and moving the mouse along it">
       <created>1682366172119</created>
@@ -110,7 +106,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682366189221</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add chilling cats ^.^">
+      <created>1682472054570</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1682472054570</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -129,7 +132,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added path creation and moving the mouse along it" />
-    <option name="LAST_COMMIT_MESSAGE" value="added path creation and moving the mouse along it" />
+    <MESSAGE value="add chilling cats ^.^" />
+    <option name="LAST_COMMIT_MESSAGE" value="add chilling cats ^.^" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
