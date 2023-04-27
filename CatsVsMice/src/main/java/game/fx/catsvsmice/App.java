@@ -9,14 +9,12 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-
-
 public class App extends Application {
     private GameView gameView;
     private GameModel gameModel;
     private int gameStage = 0;
     @Override
-    public void start(Stage stage) {
+    public void start(Stage stage) throws InterruptedException {
         gameModel = new GameModel();
 
         gameView = new GameView(stage, gameModel);
@@ -26,20 +24,11 @@ public class App extends Application {
         Timeline gameLoop = new Timeline(new KeyFrame(Duration.millis(1000D / FPS), upDateEvent -> {
             gameView.render();
             if(gameStage%3 == 2){
-
-//                firstT = 0;
-//                firstT = System.nanoTime();
-//                elapsed = firstT - lastT;
-//                lastT = first;
                 gameModel.moveMouse();
             }
         }));
         gameLoop.setCycleCount(Timeline.INDEFINITE);
         gameLoop.play();
-
-//        stage.addEventHandler(KeyEvent.KEY_PRESSED, keyPressedEvent -> {
-//            gameModel.moveMouseKeyboard(keyPressedEvent);
-//        });
 
         stage.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseClickedEvent -> {
 

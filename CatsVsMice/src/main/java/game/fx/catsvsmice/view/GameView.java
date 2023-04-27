@@ -1,6 +1,7 @@
 package game.fx.catsvsmice.view;
 
 import game.fx.catsvsmice.model.GameModel;
+import game.fx.catsvsmice.model.Sprite;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -20,12 +21,10 @@ public class GameView {
     public static final double WINDOW_HEIGHT = (int)(Screen.getPrimary().getBounds().getHeight()/1.5);
 
     private final Stage stage;
-    private GameModel gameModel;
+    private final GameModel gameModel;
     private Canvas canvas;
     private Text fpsOnDisplay;
     private long lastFrameTime = 0;
-    private List<Double> path;
-    private List<Double> cats;
     private Button gameStageButton;
 
     public static final int BUTTON_PRESSED = 0;
@@ -86,8 +85,8 @@ public class GameView {
         drawFpsOnDisplay();
         drawBackground(gc);
         drawPath(gc);
-        drawCats(gc);
         drawMouse(gc);
+        drawCats(gc);
     }
     private void drawFpsOnDisplay(){
         long currentFrameTime = System.nanoTime();
@@ -108,20 +107,32 @@ public class GameView {
         gc.setStroke(Color.BLACK);
         gc.setLineWidth(5);
 
-        path = gameModel.getPath();
-        for(int i = 0; i < path.size(); i+=2){
+        Sprite[] sprites = gameModel.getPathSprites();
+
+        int pathLen = sprites.length;
+        double firstPointX = sprites[0].getPosX()-widthRadius/2;
+        double firstPointY = sprites[0].getPosY()-widthRadius/2;
+        double lastPointX = sprites[pathLen-1].getPosX()-widthRadius/2;
+        double lastPointY = sprites[pathLen-1].getPosY()-widthRadius/2;
+
+        for (int i = 0; i < pathLen; i++) {
             if(i > 0){
-                gc.strokeLine(path.get(i-2), path.get(i-1), path.get(i), path.get(i+1));
-                gc.fillOval(path.get(i-2)-widthRadius/2, path.get(i-1)-heightRadius/2, widthRadius, heightRadius);
+                gc.strokeLine(sprites[i-1].getPosX(), sprites[i-1].getPosY(), sprites[i].getPosX(), sprites[i].getPosY());
+                gc.fillOval(sprites[i-1].getPosX()-widthRadius/2, sprites[i-1].getPosY()-heightRadius/2, widthRadius, heightRadius);
             }
-            gc.fillOval(path.get(i)-widthRadius/2, path.get(i+1)-heightRadius/2, widthRadius, heightRadius);
         }
+        gc.fillOval(firstPointX, firstPointY, widthRadius, heightRadius);
+        gc.fillOval(lastPointX, lastPointY, widthRadius, heightRadius);
+//
     }
     private void drawCats(GraphicsContext gc){
-        cats = gameModel.getCats();
-        for(int i = 0; i < cats.size(); i+=2){
-            gc.drawImage(gameModel.getCatImg(), cats.get(i)-gameModel.getCatImg().getWidth()/2, cats.get(i+1)-gameModel.getCatImg().getHeight()/2);
+        for (Sprite sprite: gameModel.getCatSprites()) {
+            gc.drawImage(sprite.getImg(), sprite.getPosX()-sprite.getImg().getWidth()/2, sprite.getPosY()-sprite.getImg().getHeight()/2);
         }
+//        cats = gameModel.getCats();
+//        for(int i = 0; i < cats.size(); i+=2){
+//            gc.drawImage(gameModel.getCatImg(), cats.get(i)-gameModel.getCatImg().getWidth()/2, cats.get(i+1)-gameModel.getCatImg().getHeight()/2);
+//        }
     }
     private void drawMouse(GraphicsContext gc){
         gc.drawImage(gameModel.getMouseIMG(), gameModel.getMousePosX()-gameModel.getMouseWidth()/2, gameModel.getMousePosY()-gameModel.getMouseHeight()/2);
