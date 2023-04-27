@@ -135,7 +135,10 @@ public class GameView {
 //        }
     }
     private void drawMouse(GraphicsContext gc){
-        gc.drawImage(gameModel.getMouseIMG(), gameModel.getMousePosX()-gameModel.getMouseWidth()/2, gameModel.getMousePosY()-gameModel.getMouseHeight()/2);
+        for (Sprite sprite:gameModel.getMouseSprite()) {
+            gc.drawImage(sprite.getImg(), sprite.getPosX()-sprite.getImg().getWidth()/2, sprite.getPosY()-sprite.getImg().getHeight()/2);
+
+        }
     }
 
     public Button getGameStageButton(){

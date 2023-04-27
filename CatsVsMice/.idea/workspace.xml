@@ -4,14 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b3694628-352a-4e3e-8226-080989344790" name="Changes" comment="fixed bugs and separated on func">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Sprite.java" afterDir="false" />
+    <list default="true" id="b3694628-352a-4e3e-8226-080989344790" name="Changes" comment="fixed bugs and added sprites">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Cats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Cat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/GameModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/GameModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Path.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Point.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Mouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Mouse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Point.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Sprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Sprite.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/view/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/view/GameView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -97,7 +96,10 @@
       <workItem from="1682535497070" duration="1595000" />
       <workItem from="1682537554121" duration="478000" />
       <workItem from="1682538057024" duration="14266000" />
-      <workItem from="1682554445464" duration="861000" />
+      <workItem from="1682554445464" duration="1180000" />
+      <workItem from="1682588776935" duration="49000" />
+      <workItem from="1682588844260" duration="972000" />
+      <workItem from="1682592876537" duration="7432000" />
     </task>
     <task id="LOCAL-00001" summary="added path creation and moving the mouse along it">
       <created>1682366172119</created>
@@ -127,7 +129,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682537924236</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="fixed bugs and added sprites">
+      <created>1682555595383</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1682555595383</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -148,7 +157,8 @@
     <MESSAGE value="added path creation and moving the mouse along it" />
     <MESSAGE value="add chilling cats ^.^" />
     <MESSAGE value="fixed bugs and separated on func" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed bugs and separated on func" />
+    <MESSAGE value="fixed bugs and added sprites" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed bugs and added sprites" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

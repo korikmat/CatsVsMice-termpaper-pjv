@@ -9,6 +9,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import static java.lang.Thread.sleep;
+
 public class App extends Application {
     private GameView gameView;
     private GameModel gameModel;

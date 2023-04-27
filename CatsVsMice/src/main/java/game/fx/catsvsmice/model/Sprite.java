@@ -8,8 +8,8 @@ public class Sprite {
     private double posX;
     private double posY;
 
-    public void setImg(String picName, double sizeX, double sizeY){
-        img = new Image(picName, GameView.WINDOW_WIDTH*sizeX, GameView.WINDOW_HEIGHT*sizeY, false,false);
+    public void setImg(String picName, double scaleX, double scaleY){
+        img = new Image(picName, GameView.WINDOW_WIDTH*scaleX, GameView.WINDOW_HEIGHT*scaleY, false,false);
     }
     public Image getImg(){
         return img;

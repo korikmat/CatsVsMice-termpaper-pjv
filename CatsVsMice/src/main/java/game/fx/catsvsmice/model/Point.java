@@ -6,6 +6,12 @@ public class Point {
         sprite = new Sprite();
         sprite.setXY(posX, posY);
     }
+    public double getX(){
+        return sprite.getPosX();
+    }
+    public double getY(){
+        return sprite.getPosY();
+    }
     public Sprite getSprite() {
         return sprite;
     }
