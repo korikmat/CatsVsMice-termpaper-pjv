@@ -1,6 +1,9 @@
 package game.fx.catsvsmice.model;
 
 public class Cat {
+    private final double attackRadius = 75;
+    private long lastTime = 0;
+    private long currTime;
     private final Sprite sprite;
 
     public Cat(double posX, double posY) {
@@ -15,10 +18,38 @@ public class Cat {
                 picName = "cat-grey.gif";
                 break;
         }
-        sprite.setImg(picName,140.0/1920.0, 140.0/1080.0);
+//        picName = "punch.gif";
+//        sprite.setImg(picName,250.0/1920.0, 250.0/1080.0);
+        sprite.setImg(picName,100.0/1920.0, 100.0/1080.0);
     }
+
     public Sprite getSprite(){
         return sprite;
+    }
+
+    public boolean isReady(){
+        currTime = System.nanoTime();
+
+        if(currTime - lastTime >= 2_000_000_000){
+//            System.out.println("ready");
+
+            return true;
+        }
+        return false;
+    }
+    public void updateTime(){
+        lastTime = currTime;
+    }
+    public boolean mouseInRange(double MousePosX, double MousePosY){
+                // (x - a)^2 + (y - b)^2 <= R^2
+        return (MousePosX-getCatPosX())*(MousePosX-getCatPosX()) + (MousePosY-getCatPosY())*(MousePosY-getCatPosY()) <= attackRadius*attackRadius;
+    }
+
+    private double getCatPosX(){
+        return sprite.getPosX();
+    }
+    private double getCatPosY(){
+        return sprite.getPosY();
     }
 
 }

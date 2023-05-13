@@ -1,28 +1,29 @@
 package game.fx.catsvsmice.model;
 
-import javafx.scene.image.Image;
-
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.lang.Math.random;
 import static java.lang.Math.sqrt;
 
 public class GameModel {
-    private final Mouse mouse = new Mouse();
     private final List<Mouse> mice = new ArrayList<>(10);
+    private final List<Mouse> diedMice = new ArrayList<>();
+
     private final List<Point> path = new ArrayList<>();
     private final List<Cat> cats = new ArrayList<>();
+    private final Coins coins;
     private int miceNum;
     public GameModel(){
-        for(int i = 0; i < 10; i++){
+        for(int i = 0; i < 100; i++){
             mice.add(new Mouse());
         }
         miceNum = mice.size();
         putPath(mice.get(0).getX(), mice.get(0).getY());
+
+        coins = new Coins(100);
     }
-    public void moveMouse(){
-        if(miceNum > 0 && ((int)(Math.random()*100)) == 1){
+    public void moveMice(){
+        if(miceNum > 0 && ((int)(Math.random()*20)) == 1){
             miceNum--;
             System.out.println(miceNum);
         }
@@ -52,6 +53,26 @@ public class GameModel {
         }
     }
 
+    public void tryToAttackMice(){
+        for(Cat cat: cats){
+            if(cat.isReady()) {
+                for (Mouse mouse : mice) {
+                    if (cat.mouseInRange(mouse.getX(), mouse.getY())) {
+
+                        mouse.reduceLivesCount(1);
+                        System.out.println("Lives left " + mouse.getLivesCount());
+                        if (mouse.getLivesCount() <= 0) {
+                            diedMice.add(mouse);
+                        }
+                        cat.updateTime();
+                    }
+                }
+                mice.removeAll(diedMice);
+                diedMice.clear();
+            }
+        }
+    }
+
     public void putPath(double posX, double posY){
         path.add(new Point(posX, posY));
     }
@@ -64,7 +85,13 @@ public class GameModel {
     }
 
     public void putCat(double posX, double posY) {
-        cats.add(new Cat(posX, posY));
+        if(coins.isPaid(25)){
+            cats.add(new Cat(posX, posY));
+        }
+        else{
+            System.out.println("Out of coins!");
+        }
+
     }
     public Sprite[] getCatSprites(){
         Sprite[] sprites = new Sprite[cats.size()];
@@ -82,4 +109,7 @@ public class GameModel {
         return sprites;
     }
 
+    public int getCoinsCount(){
+        return coins.getCount();
+    }
 }

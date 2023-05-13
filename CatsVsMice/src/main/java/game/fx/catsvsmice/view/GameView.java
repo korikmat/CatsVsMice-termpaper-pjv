@@ -14,37 +14,39 @@ import javafx.scene.text.Text;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
-import java.util.List;
+import static java.lang.Thread.sleep;
 
 public class GameView {
-    public static final double WINDOW_WIDTH = (int)(Screen.getPrimary().getBounds().getWidth()/1.5);
-    public static final double WINDOW_HEIGHT = (int)(Screen.getPrimary().getBounds().getHeight()/1.5);
-
+    public static final double WINDOW_WIDTH = (int)(Screen.getPrimary().getBounds().getWidth()/1.4);
+    public static final double WINDOW_HEIGHT = (int)(WINDOW_WIDTH*(9.0/16.0));
+//    public static final double WINDOW_WIDTH = 1920;
+//    public static final double WINDOW_HEIGHT = 1080;
     private final Stage stage;
     private final GameModel gameModel;
     private Canvas canvas;
     private Text fpsOnDisplay;
     private long lastFrameTime = 0;
-    private Button gameStageButton;
+    private HeadUpDisplay headUpDisplay;
 
     public static final int BUTTON_PRESSED = 0;
     public static final int BUTTON_RELEASED = 1;
-
     public static final int ON_BUTTON = 2;
     public static final int OUT_OF_BUTTON = 3;
 
-    private final Image background = new Image("background.png", WINDOW_WIDTH, WINDOW_HEIGHT, false, false);
+    private final Image background = new Image("room-background.png", WINDOW_WIDTH, WINDOW_HEIGHT, false, false);
     public GameView(Stage stage, GameModel gameModel){
         this.stage = stage;
         this.gameModel = gameModel;
     }
     public void initRender(){
-        canvas = new Canvas(WINDOW_WIDTH, WINDOW_HEIGHT);
-        initFpsOnDisplayText();
-        initGameStageButton();
+        System.out.println(WINDOW_WIDTH+" "+WINDOW_HEIGHT);
 
-        Pane pane = new Pane(canvas, fpsOnDisplay, gameStageButton);
-        Scene scene = new Scene(pane);
+        initFpsOnDisplayText();
+        initHeadUpDisplay();
+
+        canvas = new Canvas(WINDOW_WIDTH, WINDOW_HEIGHT);
+        Pane pane = new Pane(canvas, fpsOnDisplay, headUpDisplay.getGameButton(), headUpDisplay.getGameStageInfoMenuPane());
+        Scene scene = new Scene(pane, WINDOW_WIDTH, WINDOW_HEIGHT);
         stage.setTitle("CatsVsMice");
         stage.setScene(scene);
         stage.show();
@@ -53,31 +55,12 @@ public class GameView {
     private void initFpsOnDisplayText(){
         fpsOnDisplay = new Text(WINDOW_WIDTH*(1710.0/1920.0), WINDOW_HEIGHT*(95.0/1080.0), "FPS: 0");
         double textSize = (WINDOW_HEIGHT*(30.0/1080.0));
-        fpsOnDisplay.setStyle(
-                "-fx-font-family: 'Nineteen Ninety Three'; " +
-                "-fx-font-size: " +
-                String.format("%.0f", textSize) + "px"
-        );
-        fpsOnDisplay.setFont(Font.loadFont("/fonts/NineteenNinetyThree-L1Ay.ttf", 50));
-//        fpsOnDisplay.setFont(Font.loadFont("/fonts/minecraft.ttf", 50));
-
+        fpsOnDisplay.setFont(Font.loadFont(GameView.class.getResourceAsStream("/fonts/NineteenNinetyThree-L1Ay.ttf"), textSize));
 
     }
-    private void initGameStageButton(){
-        gameStageButton = new Button();
-        double buttonSizeX = WINDOW_WIDTH*(100.0/1920);
-        double buttonSizeY = WINDOW_HEIGHT*(130.0/1080);
-        gameStageButton.setStyle(
-                "-fx-background-radius: 20;" +
-                "-fx-background-color: transparent; " +
-                "-fx-border-color: transparent;" +
-                " -fx-background-image: url(button-invis.png); " +
-                "-fx-background-size: " +
-                String.format("%.0fpx %.0fpx", buttonSizeX, buttonSizeY)
-        );
-        gameStageButton.setPrefSize(buttonSizeX,buttonSizeY);
-        gameStageButton.setLayoutX(WINDOW_WIDTH*(1785.0/1920.0));
-        gameStageButton.setLayoutY(WINDOW_HEIGHT*(475.0/1080.0)); //921.0 right-bottom
+    private void initHeadUpDisplay(){
+        headUpDisplay = new HeadUpDisplay();
+        headUpDisplay.initHUD();
     }
     public void render(){
         GraphicsContext gc = canvas.getGraphicsContext2D();
@@ -87,6 +70,7 @@ public class GameView {
         drawPath(gc);
         drawMouse(gc);
         drawCats(gc);
+        headUpDisplay.updateCoinsCountText(gameModel.getCoinsCount());
     }
     private void drawFpsOnDisplay(){
         long currentFrameTime = System.nanoTime();
@@ -126,13 +110,11 @@ public class GameView {
 //
     }
     private void drawCats(GraphicsContext gc){
+        gc.setStroke(Color.WHITE);
         for (Sprite sprite: gameModel.getCatSprites()) {
+            gc.strokeOval(sprite.getPosX()-75, sprite.getPosY()-75, 150, 150);
             gc.drawImage(sprite.getImg(), sprite.getPosX()-sprite.getImg().getWidth()/2, sprite.getPosY()-sprite.getImg().getHeight()/2);
         }
-//        cats = gameModel.getCats();
-//        for(int i = 0; i < cats.size(); i+=2){
-//            gc.drawImage(gameModel.getCatImg(), cats.get(i)-gameModel.getCatImg().getWidth()/2, cats.get(i+1)-gameModel.getCatImg().getHeight()/2);
-//        }
     }
     private void drawMouse(GraphicsContext gc){
         for (Sprite sprite:gameModel.getMouseSprite()) {
@@ -142,44 +124,16 @@ public class GameView {
     }
 
     public Button getGameStageButton(){
-        return gameStageButton;
+        return headUpDisplay.getGameButton();
     }
     public void setGameStageButtonStyle(int style){
-        double buttonSizeX = WINDOW_WIDTH*(100.0/1920);
-        double buttonSizeY = WINDOW_HEIGHT*(130.0/1080);
-        switch (style){
-            case BUTTON_PRESSED:
-                gameStageButton.setStyle(
-                        "-fx-background-radius: 20;" +
-                        "-fx-background-color: transparent; " +
-                        "-fx-border-color: transparent; " +
-                        "-fx-background-image: url(button-press-brown.png); " +
-                        "-fx-background-size: " +
-                        String.format("%.0fpx %.0fpx", buttonSizeX, buttonSizeY)
-                );
-                break;
-            case BUTTON_RELEASED:
-            case ON_BUTTON:
-                gameStageButton.setStyle(
-                        "-fx-background-radius: 20;" +
-                        "-fx-background-color: transparent; " +
-                        "-fx-border-color: transparent; " +
-                        "-fx-background-image: url(button-vis-brown.png); " +
-                        "-fx-background-size: " +
-                        String.format("%.0fpx %.0fpx", buttonSizeX, buttonSizeY)
-                );
-                break;
-            case OUT_OF_BUTTON:
-                gameStageButton.setStyle(
-                        "-fx-background-radius: 20;" +
-                        "-fx-background-color: transparent; " +
-                        "-fx-border-color: transparent; " +
-                        "-fx-background-image: url(button-invis.png); " +
-                        "-fx-background-size: " +
-                        String.format("%.0fpx %.0fpx", buttonSizeX, buttonSizeY)
-                );
-                break;
-        }
+        headUpDisplay.setGameButtonStyle(style);
+    }
+    public void slideUpInfoMenu(){
+        headUpDisplay.slideUpInfoMenu();
+    }
+    public void slideDownInfoMenu(){
+        headUpDisplay.slideDownInfoMenu();
     }
 
 }

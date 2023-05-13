@@ -4,7 +4,8 @@ import game.fx.catsvsmice.view.GameView;
 import javafx.scene.image.Image;
 
 public class Mouse {
-    Sprite sprite;
+    private final Sprite sprite;
+    private int livesCount;
     private int currLine;
     public Mouse(){
         sprite = new Sprite();
@@ -12,6 +13,7 @@ public class Mouse {
         sprite.setImg("mouse.png", 79.1/1920.0, 79.8/1080.0);
 
         currLine = 0;
+        livesCount = 1;
     }
     public Sprite getSprite(){
         return sprite;
@@ -30,5 +32,12 @@ public class Mouse {
     }
     public void incrementCurrLine(){
         currLine++;
+    }
+
+    public int getLivesCount() {
+        return livesCount;
+    }
+    public void reduceLivesCount(int damage){
+        livesCount -= damage;
     }
 }

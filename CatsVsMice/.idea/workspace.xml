@@ -4,13 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b3694628-352a-4e3e-8226-080989344790" name="Changes" comment="fixed bugs and added sprites">
+    <list default="true" id="b3694628-352a-4e3e-8226-080989344790" name="Changes" comment="extended sprites and added more mice">
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Coins.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/view/GameStageButton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/view/GameStageInfoMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/view/HeadUpDisplay.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/coin.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/menu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/punch.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/room-background.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/stage-button-invisible.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/stage-button-pressed.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/stage-button-visible.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Cat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Cat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/GameModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/GameModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Mouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Mouse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Point.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Sprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Sprite.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/view/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/view/GameView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,11 +57,12 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/mathew/Documents/studying/pjv/term_paper/MyGames/CatsVsMice&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/mathew/Documents/studying/pjv/term_paper/fx-towerdefense&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
@@ -100,6 +111,18 @@
       <workItem from="1682588776935" duration="49000" />
       <workItem from="1682588844260" duration="972000" />
       <workItem from="1682592876537" duration="7432000" />
+      <workItem from="1682600854561" duration="292000" />
+      <workItem from="1682609265216" duration="2819000" />
+      <workItem from="1682614203578" duration="184000" />
+      <workItem from="1682621532516" duration="1264000" />
+      <workItem from="1683015206832" duration="429000" />
+      <workItem from="1683030442853" duration="172000" />
+      <workItem from="1683209922161" duration="1232000" />
+      <workItem from="1683487935888" duration="5251000" />
+      <workItem from="1683747055398" duration="8911000" />
+      <workItem from="1683805190439" duration="27093000" />
+      <workItem from="1683892339501" duration="1540000" />
+      <workItem from="1683971553607" duration="27622000" />
     </task>
     <task id="LOCAL-00001" summary="added path creation and moving the mouse along it">
       <created>1682366172119</created>
@@ -136,7 +159,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682555595383</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="extended sprites and added more mice">
+      <created>1682601052514</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1682601052514</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -158,7 +188,8 @@
     <MESSAGE value="add chilling cats ^.^" />
     <MESSAGE value="fixed bugs and separated on func" />
     <MESSAGE value="fixed bugs and added sprites" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed bugs and added sprites" />
+    <MESSAGE value="extended sprites and added more mice" />
+    <option name="LAST_COMMIT_MESSAGE" value="extended sprites and added more mice" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
