@@ -7,6 +7,8 @@ public class Sprite {
     private Image img;
     private double posX;
     private double posY;
+    private boolean visible;
+    private double circleRadius = 0;
 
     public void setImg(String picName, double scaleX, double scaleY){
         img = new Image(picName, GameView.WINDOW_WIDTH*scaleX, GameView.WINDOW_HEIGHT*scaleY, false,false);
@@ -15,7 +17,7 @@ public class Sprite {
         return img;
     }
 
-    public void setXY(double x, double y){
+    public void setPosXY(double x, double y){
         posX = x;
         posY = y;
     }
@@ -26,4 +28,18 @@ public class Sprite {
         return posY;
     }
 
+    public void setCircleRadius(double radius){
+        circleRadius = radius;
+    }
+
+    public double getCircleRadius() {
+        return circleRadius;
+    }
+
+    public void setVisibility(boolean visible){
+        this.visible = visible;
+    }
+    public boolean isVisible(){
+        return visible;
+    }
 }

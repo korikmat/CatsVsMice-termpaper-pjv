@@ -6,21 +6,39 @@ import java.util.List;
 import static java.lang.Math.sqrt;
 
 public class GameModel {
-    private final List<Mouse> mice = new ArrayList<>(10);
+    private final List<Mouse> mice = new ArrayList<>();
     private final List<Mouse> diedMice = new ArrayList<>();
 
     private final List<Point> path = new ArrayList<>();
     private final List<Cat> cats = new ArrayList<>();
+    private final Cat catPreview = new Cat();;
     private final Coins coins;
+    private final Cheese cheese;
     private int miceNum;
+    private GameStage gameStage;
+    public enum GameStage{
+        PATH_CREATING, CATS_PUTTING, MICE_ATTACKING
+    }
     public GameModel(){
         for(int i = 0; i < 100; i++){
             mice.add(new Mouse());
+            mice.get(mice.size()-1).setState(Mouse.State.WAITING);
         }
         miceNum = mice.size();
         putPath(mice.get(0).getX(), mice.get(0).getY());
 
         coins = new Coins(100);
+        cheese = new Cheese();
+    }
+
+    public void advanceState(int gameStage, double computerMousePosX, double computerMousePosY){
+        if(gameStage == 2){
+            moveMice();
+            tryToAttackMice();
+        }
+        if(gameStage == 1){
+            updateCatPreview(computerMousePosX, computerMousePosY);
+        }
     }
     public void moveMice(){
         if(miceNum > 0 && ((int)(Math.random()*20)) == 1){
@@ -49,8 +67,13 @@ public class GameModel {
                 }
 
                 mice.get(i).setXY(posX, posY);
+
+                if(cheese.isInside(posX, posY)){
+                    mice.get(i).setState(Mouse.State.FINISHED);
+                }
             }
         }
+
     }
 
     public void tryToAttackMice(){
@@ -61,14 +84,24 @@ public class GameModel {
 
                         mouse.reduceLivesCount(1);
                         System.out.println("Lives left " + mouse.getLivesCount());
-                        if (mouse.getLivesCount() <= 0) {
+                        if (mouse.isDead()) {
                             diedMice.add(mouse);
+                            coins.earn(2);
+
                         }
+                        cat.setState(Cat.State.ATTACKING);
                         cat.updateTime();
                     }
                 }
-                mice.removeAll(diedMice);
-                diedMice.clear();
+            }
+            if(cat.getState() == Cat.State.ATTACKING){
+                cat.increaseCircleRadius(8);
+                if(cat.getCircleRadius() >= cat.getAttackRadius()){
+                    cat.resetCircleRadius(10);
+                    cat.setState(Cat.State.WAITING);
+                    mice.removeAll(diedMice);
+                    diedMice.clear();
+                }
             }
         }
     }
@@ -87,11 +120,31 @@ public class GameModel {
     public void putCat(double posX, double posY) {
         if(coins.isPaid(25)){
             cats.add(new Cat(posX, posY));
+            cats.get(cats.size()-1).resetCircleRadius(10);
+            cats.get(cats.size()-1).setState(Cat.State.READY);
         }
         else{
             System.out.println("Out of coins!");
         }
 
+    }
+
+    public void setCatPreviewVisibility(boolean visible){
+        if(visible){
+            catPreview.resetCircleRadius(catPreview.getAttackRadius());
+        }
+        else{
+            catPreview.setVisible(false);
+        }
+
+    }
+
+    public void updateCatPreview(double posX, double posY){
+        catPreview.setVisible(true);
+        catPreview.setPosXY(posX, posY);
+    }
+    public Sprite getCatPreviewSprite(){
+        return catPreview.getSprite();
     }
     public Sprite[] getCatSprites(){
         Sprite[] sprites = new Sprite[cats.size()];
@@ -101,7 +154,7 @@ public class GameModel {
         return sprites;
     }
 
-    public Sprite[] getMouseSprite(){
+    public Sprite[] getMouseSprites(){
         Sprite[] sprites = new Sprite[mice.size()];
         for (int i = 0; i < mice.size(); i++){
             sprites[i] = mice.get(i).getSprite();
@@ -111,5 +164,9 @@ public class GameModel {
 
     public int getCoinsCount(){
         return coins.getCount();
+    }
+
+    public Sprite getCheeseSprite(){
+        return cheese.getSprite();
     }
 }

@@ -17,4 +17,8 @@ public class Coins {
         coinsCount-=price;
         return true;
     }
+
+    public void earn(int wages){
+        coinsCount+=wages;
+    }
 }

@@ -1,15 +1,18 @@
 package game.fx.catsvsmice.model;
 
 import game.fx.catsvsmice.view.GameView;
-import javafx.scene.image.Image;
 
 public class Mouse {
     private final Sprite sprite;
     private int livesCount;
     private int currLine;
+    private State state;
+    public enum State {
+        WAITING, GOING, FINISHED, EATEN
+    }
     public Mouse(){
         sprite = new Sprite();
-        sprite.setXY(GameView.WINDOW_WIDTH*(80.0/1920.0), GameView.WINDOW_HEIGHT*(420.0/1080.0));
+        sprite.setPosXY(GameView.WINDOW_WIDTH*(80.0/1920.0), GameView.WINDOW_HEIGHT*(420.0/1080.0));
         sprite.setImg("mouse.png", 79.1/1920.0, 79.8/1080.0);
 
         currLine = 0;
@@ -19,7 +22,7 @@ public class Mouse {
         return sprite;
     }
     public void setXY(double posX, double posY){
-        sprite.setXY(posX, posY);
+        sprite.setPosXY(posX, posY);
     }
     public double getX(){
         return sprite.getPosX();
@@ -39,5 +42,16 @@ public class Mouse {
     }
     public void reduceLivesCount(int damage){
         livesCount -= damage;
+    }
+
+    public boolean isDead(){
+        return livesCount <= 0;
+    }
+
+    public void setState(State state){
+        this.state = state;
+    }
+    public State getState(){
+        return state;
     }
 }

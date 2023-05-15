@@ -68,8 +68,10 @@ public class GameView {
         drawFpsOnDisplay();
         drawBackground(gc);
         drawPath(gc);
+        drawCheese(gc);
         drawMouse(gc);
         drawCats(gc);
+        drawCatPreview(gc);
         headUpDisplay.updateCoinsCountText(gameModel.getCoinsCount());
     }
     private void drawFpsOnDisplay(){
@@ -111,16 +113,32 @@ public class GameView {
     }
     private void drawCats(GraphicsContext gc){
         gc.setStroke(Color.WHITE);
+        gc.setLineWidth(5);
         for (Sprite sprite: gameModel.getCatSprites()) {
-            gc.strokeOval(sprite.getPosX()-75, sprite.getPosY()-75, 150, 150);
+            gc.strokeOval(sprite.getPosX()- sprite.getCircleRadius(), sprite.getPosY()- sprite.getCircleRadius(), sprite.getCircleRadius()*2, sprite.getCircleRadius()*2);
+            gc.drawImage(sprite.getImg(), sprite.getPosX()-sprite.getImg().getWidth()/2, sprite.getPosY()-sprite.getImg().getHeight()/2);
+        }
+
+    }
+    private void drawCatPreview(GraphicsContext gc){
+        Sprite sprite = gameModel.getCatPreviewSprite();
+        if(sprite.isVisible()){
+            gc.setStroke(Color.WHITE);
+            gc.setLineWidth(5);
+            gc.strokeOval(sprite.getPosX()- sprite.getCircleRadius(), sprite.getPosY()- sprite.getCircleRadius(), sprite.getCircleRadius()*2, sprite.getCircleRadius()*2);
             gc.drawImage(sprite.getImg(), sprite.getPosX()-sprite.getImg().getWidth()/2, sprite.getPosY()-sprite.getImg().getHeight()/2);
         }
     }
     private void drawMouse(GraphicsContext gc){
-        for (Sprite sprite:gameModel.getMouseSprite()) {
+        for (Sprite sprite:gameModel.getMouseSprites()) {
             gc.drawImage(sprite.getImg(), sprite.getPosX()-sprite.getImg().getWidth()/2, sprite.getPosY()-sprite.getImg().getHeight()/2);
 
         }
+    }
+
+    private void drawCheese(GraphicsContext gc){
+        Sprite sprite = gameModel.getCheeseSprite();
+        gc.drawImage(sprite.getImg(), sprite.getPosX(), sprite.getPosY());
     }
 
     public Button getGameStageButton(){
@@ -132,8 +150,8 @@ public class GameView {
     public void slideUpInfoMenu(){
         headUpDisplay.slideUpInfoMenu();
     }
-    public void slideDownInfoMenu(){
-        headUpDisplay.slideDownInfoMenu();
+    public void slideDownInfoMenu(int gameState){
+        headUpDisplay.slideDownInfoMenu(gameState);
     }
 
 }

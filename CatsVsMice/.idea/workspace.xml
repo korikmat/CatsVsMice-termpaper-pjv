@@ -4,24 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b3694628-352a-4e3e-8226-080989344790" name="Changes" comment="extended sprites and added more mice">
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Coins.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/view/GameStageButton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/view/GameStageInfoMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/view/HeadUpDisplay.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/coin.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/menu.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/punch.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/room-background.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/stage-button-invisible.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/stage-button-pressed.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/stage-button-visible.png" afterDir="false" />
+    <list default="true" id="b3694628-352a-4e3e-8226-080989344790" name="Changes" comment="updated buttons and added info menu. added damage from cats. Some changes in background.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Cheese.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/cheese.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/heart.gif" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Cat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Cat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Coins.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Coins.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/GameModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/GameModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Mouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Mouse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Point.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Sprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Sprite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/view/GameStageInfoMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/view/GameStageInfoMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/view/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/view/GameView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/view/HeadUpDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/view/HeadUpDisplay.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +119,8 @@
       <workItem from="1683747055398" duration="8911000" />
       <workItem from="1683805190439" duration="27093000" />
       <workItem from="1683892339501" duration="1540000" />
-      <workItem from="1683971553607" duration="27622000" />
+      <workItem from="1683971553607" duration="30197000" />
+      <workItem from="1684149163557" duration="26966000" />
     </task>
     <task id="LOCAL-00001" summary="added path creation and moving the mouse along it">
       <created>1682366172119</created>
@@ -166,7 +164,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682601052514</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="updated buttons and added info menu. added damage from cats. Some changes in background.">
+      <created>1684019106885</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1684019106885</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,7 +194,8 @@
     <MESSAGE value="fixed bugs and separated on func" />
     <MESSAGE value="fixed bugs and added sprites" />
     <MESSAGE value="extended sprites and added more mice" />
-    <option name="LAST_COMMIT_MESSAGE" value="extended sprites and added more mice" />
+    <MESSAGE value="updated buttons and added info menu. added damage from cats. Some changes in background." />
+    <option name="LAST_COMMIT_MESSAGE" value="updated buttons and added info menu. added damage from cats. Some changes in background." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

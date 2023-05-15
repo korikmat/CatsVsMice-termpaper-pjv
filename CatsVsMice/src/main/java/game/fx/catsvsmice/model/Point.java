@@ -4,7 +4,7 @@ public class Point {
     private final Sprite sprite;
     public Point(double posX, double posY) {
         sprite = new Sprite();
-        sprite.setXY(posX, posY);
+        sprite.setPosXY(posX, posY);
     }
     public double getX(){
         return sprite.getPosX();

@@ -27,8 +27,8 @@ public class HeadUpDisplay {
     public void slideUpInfoMenu(){
         infoMenu.slideUp();
     }
-    public void slideDownInfoMenu(){
-        infoMenu.slideDown();
+    public void slideDownInfoMenu(int gameState){
+        infoMenu.slideDown(gameState);
     }
     public Pane getGameStageInfoMenuPane(){
         return infoMenu.getPane();
