@@ -1,0 +1,17 @@
+.my-menu-button {
+    -fx-background-color: #cfb29b;
+    -fx-border-width: 5px;
+    -fx-background-radius: 30px;
+    -fx-border-radius: 25px;
+    -fx-border-color: #938275;
+}
+
+.my-menu-button:hover{
+    -fx-background-color: #927b67;
+}
+
+.my-menu-button:pressed {
+    -fx-background-color: #76584e;
+    -fx-border-color: #5f504c;
+}
+

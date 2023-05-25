@@ -4,21 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b3694628-352a-4e3e-8226-080989344790" name="Changes" comment="updated buttons and added info menu. added damage from cats. Some changes in background.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Cheese.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/cheese.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/heart.gif" afterDir="false" />
+    <list default="true" id="b3694628-352a-4e3e-8226-080989344790" name="Changes" comment="added cat preview, cheese lives and visualization of cat attack">
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/DataSaver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/GameData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/view/AboutMeScene.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/view/EditorScene.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/view/GameButtons.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/view/GameScene.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/view/LvlSelectionScene.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/view/MainMenuScene.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/main-menu-button.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/main-menu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/CatsTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/CheeseTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/CoinsTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Cat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Cat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Cheese.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Cheese.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Coins.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Coins.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/GameModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/GameModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Mouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Mouse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Point.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Sprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/model/Sprite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/view/GameStageButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/view/GameStageButton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/view/GameStageInfoMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/view/GameStageInfoMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/view/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/view/GameView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/view/HeadUpDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/view/HeadUpDisplay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/menu.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/info-menu-back.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +42,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="CSS File" />
         <option value="Class" />
       </list>
     </option>
@@ -53,17 +68,19 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;last_opened_file_path&quot;: &quot;/home/mathew/Documents/studying/pjv/term_paper/fx-towerdefense&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -72,8 +89,11 @@
       <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="$PROJECT_DIR$/src/main/java/game/fx/catsvsmice/view" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="game.fx.catsvsmice" />
+    </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Run">
     <configuration name="Run" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="game.fx.catsvsmice.App" />
       <module name="CatsVsMice" />
@@ -81,6 +101,54 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CatsTest.testIsMouseInside" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CatsVsMice" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CatsTest" />
+      <option name="METHOD_NAME" value="testIsMouseInside" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CatsTest.testSpendingMoney" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CatsVsMice" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CatsTest" />
+      <option name="METHOD_NAME" value="testSpendingMoney" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CheeseTest.testIsMouseInside" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CatsVsMice" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CheeseTest" />
+      <option name="METHOD_NAME" value="testIsMouseInside" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CoinsTest.testSpendingMoney" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CatsVsMice" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CoinsTest" />
+      <option name="METHOD_NAME" value="testSpendingMoney" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.CheeseTest.testIsMouseInside" />
+        <item itemvalue="JUnit.CatsTest.testIsMouseInside" />
+        <item itemvalue="JUnit.CoinsTest.testSpendingMoney" />
+        <item itemvalue="JUnit.CatsTest.testSpendingMoney" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -120,7 +188,17 @@
       <workItem from="1683805190439" duration="27093000" />
       <workItem from="1683892339501" duration="1540000" />
       <workItem from="1683971553607" duration="30197000" />
-      <workItem from="1684149163557" duration="26966000" />
+      <workItem from="1684149163557" duration="28101000" />
+      <workItem from="1684234407082" duration="11575000" />
+      <workItem from="1684604785257" duration="3123000" />
+      <workItem from="1684699372685" duration="15123000" />
+      <workItem from="1684761278505" duration="26960000" />
+      <workItem from="1684829211393" duration="9607000" />
+      <workItem from="1684852499455" duration="1676000" />
+      <workItem from="1684927014296" duration="8532000" />
+      <workItem from="1684951945314" duration="4934000" />
+      <workItem from="1684957486806" duration="21198000" />
+      <workItem from="1685020071046" duration="4796000" />
     </task>
     <task id="LOCAL-00001" summary="added path creation and moving the mouse along it">
       <created>1682366172119</created>
@@ -171,7 +249,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684019106885</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="added cat preview, cheese lives and visualization of cat attack">
+      <created>1684191022967</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1684191022967</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -195,7 +280,9 @@
     <MESSAGE value="fixed bugs and added sprites" />
     <MESSAGE value="extended sprites and added more mice" />
     <MESSAGE value="updated buttons and added info menu. added damage from cats. Some changes in background." />
-    <option name="LAST_COMMIT_MESSAGE" value="updated buttons and added info menu. added damage from cats. Some changes in background." />
+    <MESSAGE value="updated buttons and added info menu. added damage from cats. Some changes in background.&#10;&#10;added cat preview, cheese lives and visualization of cat attack" />
+    <MESSAGE value="added cat preview, cheese lives and visualization of cat attack" />
+    <option name="LAST_COMMIT_MESSAGE" value="added cat preview, cheese lives and visualization of cat attack" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

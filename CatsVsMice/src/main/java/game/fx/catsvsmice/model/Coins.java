@@ -21,4 +21,7 @@ public class Coins {
     public void earn(int wages){
         coinsCount+=wages;
     }
+    public void reset(int coinsCount){
+        this.coinsCount = coinsCount;
+    }
 }

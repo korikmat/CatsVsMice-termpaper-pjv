@@ -1,11 +1,29 @@
 package game.fx.catsvsmice.model;
 
+import java.util.Random;
+
 public class Cat {
-    private final double attackRadius = 75;
+    private static final double attackRadius = 75;
+    private static final double CAT_SCALE_X = 100.0/1920.0;
+    private static final double CAT_SCALE_Y = 100.0/1080.0;
+    private static final String WHITE_CAT_PIC = "cat-white.gif";
+    private static final String GRAY_CAT_PIC = "cat-grey.gif";
+    private static final int NUM_OF_PICS = 2;
+
+
+
+    private static final long CATS_COOL_DOWN = 2_000_000_000;
+
+
+
     private long lastTime = 0;
     private long currTime;
     private final Sprite sprite;
     private State state;
+    Random random = new Random();
+
+    String picName = WHITE_CAT_PIC;
+
 
     public enum State {
         WAITING, ATTACKING, READY
@@ -13,33 +31,26 @@ public class Cat {
     public Cat(){
         sprite = new Sprite();
         sprite.setVisibility(false);
-        String picName = "cat-white.gif";
-        switch ((int) (Math.random() * 2)){
-            case 0:
-                picName = "cat-white.gif";
-                break;
-            case 1:
-                picName = "cat-grey.gif";
-                break;
-        }
-        sprite.setImg(picName,100.0/1920.0, 100.0/1080.0);
+        selectCatKind();
+        sprite.setImg(picName,CAT_SCALE_X, CAT_SCALE_Y);
     }
 
     public Cat(double posX, double posY) {
         sprite = new Sprite();
         sprite.setPosXY(posX, posY);
-        String picName = "cat-white.gif";
-        switch ((int) (Math.random() * 2)){
+        selectCatKind();
+        sprite.setImg(picName,CAT_SCALE_X, CAT_SCALE_Y);
+    }
+
+    private void selectCatKind(){
+        switch (random.nextInt(NUM_OF_PICS)){
             case 0:
-                picName = "cat-white.gif";
+                picName = WHITE_CAT_PIC;
                 break;
             case 1:
-                picName = "cat-grey.gif";
+                picName = GRAY_CAT_PIC;
                 break;
         }
-//        picName = "punch.gif";
-//        sprite.setImg(picName,250.0/1920.0, 250.0/1080.0);
-        sprite.setImg(picName,100.0/1920.0, 100.0/1080.0);
     }
     public void setPosXY(double posX, double posY){
         sprite.setPosXY(posX, posY);
@@ -51,20 +62,14 @@ public class Cat {
 
     public boolean isReady(){
         currTime = System.nanoTime();
-
-        if(currTime - lastTime >= 2_000_000_000){
-//            System.out.println("ready");
-
-            return true;
-        }
-        return false;
+        return currTime - lastTime >= CATS_COOL_DOWN;
     }
     public void updateTime(){
         lastTime = currTime;
     }
-    public boolean mouseInRange(double MousePosX, double MousePosY){
+    public boolean mouseInRange(double mousePosX, double mousePosY){
                 // (x - a)^2 + (y - b)^2 <= R^2
-        return (MousePosX-getCatPosX())*(MousePosX-getCatPosX()) + (MousePosY-getCatPosY())*(MousePosY-getCatPosY()) <= attackRadius*attackRadius;
+        return (mousePosX-getCatPosX())*(mousePosX-getCatPosX()) + (mousePosY-getCatPosY())*(mousePosY-getCatPosY()) <= attackRadius*attackRadius;
     }
 
 
