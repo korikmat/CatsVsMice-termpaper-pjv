@@ -1,8 +1,14 @@
-import game.fx.catsvsmice.model.Coins;
+import game.fx.catsvsmice.model.objects.Coins;
 import org.junit.*;
 import static org.junit.Assert.*;
 
+/**
+ * The type Coins test.
+ */
 public class CoinsTest {
+    /**
+     * Test spending money.
+     */
     @Test
     public void testSpendingMoney(){
         Coins coins = new Coins(100);

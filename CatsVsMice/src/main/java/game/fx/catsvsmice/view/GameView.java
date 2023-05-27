@@ -3,6 +3,8 @@ package game.fx.catsvsmice.view;
 import game.fx.catsvsmice.GameData;
 import game.fx.catsvsmice.model.GameModel;
 import game.fx.catsvsmice.model.Sprite;
+import game.fx.catsvsmice.view.hud.GameButtons;
+import game.fx.catsvsmice.view.scenes.*;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -16,15 +18,47 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * The type Game view.
+ * The class in which all the game scenes, buttons,
+ * as well as rendering all the game objects through sprites,
+ * which are obtained from the GameModel
+ */
 public class GameView {
+    private static final Logger LOGGER = Logger.getLogger(GameView.class.getName());
+
+    /**
+     * The constant WINDOW_WIDTH.
+     */
     public static final double WINDOW_WIDTH = (int)(Screen.getPrimary().getBounds().getWidth()/1.4);
+    /**
+     * The constant WINDOW_HEIGHT.
+     */
     public static final double WINDOW_HEIGHT = (int)(WINDOW_WIDTH*(9.0/16.0));
 //    public static final double WINDOW_WIDTH = 1920;
 //    public static final double WINDOW_HEIGHT = 1080;
 //    public static final double WINDOW_WIDTH = 2500;
 //    public static final double WINDOW_HEIGHT = 700;
+    private static final Image background = new Image("room-background.png", WINDOW_WIDTH, WINDOW_HEIGHT, false, false);
+    /**
+     * The constant BUTTON_PRESSED.
+     */
+    public static final int BUTTON_PRESSED = 0;
+    /**
+     * The constant BUTTON_RELEASED.
+     */
+    public static final int BUTTON_RELEASED = 1;
+    /**
+     * The constant ON_BUTTON.
+     */
+    public static final int ON_BUTTON = 2;
+    /**
+     * The constant OUT_OF_BUTTON.
+     */
+    public static final int OUT_OF_BUTTON = 3;
     private final Stage stage;
     private final GameModel gameModel;
+    private final GameData gameData;
     private final GameButtons gameButtons;
     private final EditorScene editorScene;
     private final GameScene gameScene;
@@ -33,16 +67,15 @@ public class GameView {
     private final AboutMeScene aboutMeScene;
     private Canvas canvas = new Canvas(WINDOW_WIDTH, WINDOW_HEIGHT);
     private long lastFrameTime = 0;
-    private final GameData gameData;
 
-    public static final int BUTTON_PRESSED = 0;
-    public static final int BUTTON_RELEASED = 1;
-    public static final int ON_BUTTON = 2;
-    public static final int OUT_OF_BUTTON = 3;
-    private static final Logger LOGGER = Logger.getLogger(GameView.class.getName());
-
-
-    private final Image background = new Image("room-background.png", WINDOW_WIDTH, WINDOW_HEIGHT, false, false);
+    /**
+     * Instantiates a new Game view.
+     * All game scenes are created in the constructor.
+     *
+     * @param stage     the stage
+     * @param gameModel the game model
+     * @param gameData  the game data
+     */
     public GameView(Stage stage, GameModel gameModel, GameData gameData){
         LOGGER.log(Level.INFO, "Window was opened at size {0}", WINDOW_WIDTH+" "+WINDOW_HEIGHT);
 
@@ -50,7 +83,7 @@ public class GameView {
         this.gameModel = gameModel;
         this.gameData = gameData;
 
-        gameButtons = new GameButtons(gameData);
+        gameButtons = new GameButtons();
 
         editorScene = new EditorScene(gameButtons);
         lvlSelectionScene = new LvlSelectionScene(gameButtons);
@@ -61,10 +94,20 @@ public class GameView {
         actualizeScene();
         stage.show();
     }
+
+    /**
+     * Get game buttons list.
+     *
+     * @return the Button list
+     */
     public List<Button> getGameButtons(){
         return gameButtons.getButtonsAsList();
     }
 
+    /**
+     * Actualize scene.
+     * Changes the scene on the stage to the actual scene, preparing it for display.
+     */
     public void actualizeScene(){
         switch (gameData.getState()){
             case MENU:
@@ -76,6 +119,7 @@ public class GameView {
             case LVL_SELECTION:
                 if(stage.getScene() != lvlSelectionScene.getScene()){
                     stage.setScene(lvlSelectionScene.getScene());
+                    lvlSelectionScene.checkForNewLevels();
                     lvlSelectionScene.prepareToView();
                     stage.setTitle("CatsVsMice<LvlSelection>");
                 }
@@ -85,7 +129,7 @@ public class GameView {
                     editorScene.prepareToView();
                     canvas = editorScene.getCanvas();
                     stage.setScene(editorScene.getScene());
-                    stage.setTitle("CatsVsMice<LvlCreation>");
+                    stage.setTitle("CatsVsMice<Editor>");
                 }
                 else {
                     editorScene.animateHud(gameData.getStage());
@@ -96,7 +140,7 @@ public class GameView {
                     gameScene.animateHud(gameData.getStage());
                     stage.setScene(gameScene.getScene());
                     canvas = gameScene.getCanvas();
-                    stage.setTitle("CatsVsMice<Menu>");
+                    stage.setTitle("CatsVsMice<Game>");
                 }
                 break;
             case ABOUTME:
@@ -108,6 +152,12 @@ public class GameView {
         }
     }
 
+    /**
+     * Get current scene.
+     *
+     * @param scene GameData.State scene
+     * @return the scene
+     */
     public Scene getScene(GameData.State scene){
         switch (scene){
             case MENU:
@@ -118,10 +168,16 @@ public class GameView {
                 return lvlSelectionScene.getScene();
             case EDITOR:
                 return editorScene.getScene();
+            default:
+                LOGGER.log(Level.INFO, "Trying to get UNKNOWN current scene!");
+                return null;
         }
-        return null;
     }
 
+    /**
+     * Render.
+     * Calls functions to draw all game objects on the screen, uses GraphicsContext of Canvas.
+     */
     public void render(){
         if(gameData.getState() == GameData.State.MENU){
             actualizeScene();
@@ -206,6 +262,4 @@ public class GameView {
         Sprite sprite = gameModel.getCheeseSprite();
         gc.drawImage(sprite.getImg(), sprite.getPosX(), sprite.getPosY());
     }
-
-
 }

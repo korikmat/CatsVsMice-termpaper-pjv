@@ -1,9 +1,15 @@
-import game.fx.catsvsmice.model.Cat;
+import game.fx.catsvsmice.model.objects.Cat;
 import org.junit.*;
 import static org.junit.Assert.*;
 
+/**
+ * The type Cats test.
+ */
 public class CatsTest {
-    // NEED TO UNCOMMENT sprite.setImg in Cat constructor!
+    /**
+     * Test is mouse inside.
+     */
+// NEED TO UNCOMMENT sprite.setImg in Cat constructor!
     @Test
     public void testIsMouseInside(){
         Cat cat = new Cat(500, 500);

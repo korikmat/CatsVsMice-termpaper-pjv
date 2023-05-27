@@ -1,10 +1,15 @@
-import game.fx.catsvsmice.model.Cat;
-import game.fx.catsvsmice.model.Cheese;
+import game.fx.catsvsmice.model.objects.Cheese;
 import org.junit.*;
 import static org.junit.Assert.*;
 
+/**
+ * The type Cheese test.
+ */
 public class CheeseTest {
-    // NEED TO UNCOMMENT sprite.setImg in Cheese constructor!
+    /**
+     * Test is mouse inside.
+     */
+// NEED TO UNCOMMENT sprite.setImg in Cheese constructor!
     @Test
     public void testIsMouseInside(){
         double sizeX = 20;

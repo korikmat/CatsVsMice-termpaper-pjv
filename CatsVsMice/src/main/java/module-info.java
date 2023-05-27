@@ -5,4 +5,5 @@ module game.fx.catsvsmice {
     requires com.google.gson;
     requires java.logging;
     exports game.fx.catsvsmice;
+    exports game.fx.catsvsmice.model.objects;
 }
